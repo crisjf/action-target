@@ -1,4 +1,4 @@
-name: Action test
+name: Update docs
 
 on:
   push:
