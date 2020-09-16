@@ -12,10 +12,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: pandoc/latex
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Test things
          run: echo "hello world"
-         run: ls -l
