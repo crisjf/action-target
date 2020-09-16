@@ -16,6 +16,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Test things
-        run: echo "hello world"
-        run: ls -l 
-        run: pwd
+        run: echo "hello world" && ls -l && pwd
