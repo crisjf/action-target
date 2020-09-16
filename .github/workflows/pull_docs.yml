@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [ master ]
   schedule:
-    - cron:  '30 * * * *' # at 30 minutes
+    - cron:  '30 * * * *' # every 30 minutes
   workflow_dispatch:
   repository_dispatch:
     types: [docs_update]
@@ -21,6 +21,10 @@ jobs:
 
       - name: Update CS_Brix
         run: bash .github/scripts/update.sh CityScope CS_Brix docs/markdown
+
+      # SYNTAX TO ADD REPOS
+      # - name: Update REPO_NAME
+        # run: bash .github/scripts/update.sh CityScope REPO_NAME PATH_TO_DOC()
 
       - name: Commit changes
         uses: EndBug/add-and-commit@v4
