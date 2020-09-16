@@ -16,4 +16,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Test things
-        run: cd cs_brix && bash update.sh
+        run: cd cs_brix && ls -l && bash update.sh
