@@ -1,5 +1,5 @@
 echo "hello world" && ls -l && pwd
 cd ..
 git clone https://github.com/CityScope/CS_Brix.git
-cp -r CS_Brix/docs/markdown action-target/cs_brix/docs/markdown
+cp -r CS_Brix/docs/markdown action-target/cs_brix/docs
 cd action-target
