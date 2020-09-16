@@ -1,7 +1,8 @@
-echo "hello world" && ls -l && pwd
 cd ..
-git clone https://github.com/CityScope/CS_Brix.git
-mkdir action-target/cs_brix
-mkdir action-target/cs_brix/docs
-cp -r CS_Brix/docs/markdown/* action-target/cs_brix/docs/
+echo ${1}
+echo ${2}
+echo ${3}
+git clone https://github.com/${1}/${2}.git
+mkdir -p action-target/${2}/docs/
+cp -r ${2}/${3}/* action-target/${2}/docs/
 cd action-target

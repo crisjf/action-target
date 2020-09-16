@@ -15,8 +15,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Test things
-        run: bash update.sh
+      - name: Update CS_Brix
+        run: bash update.sh CityScope CS_Brix docs/markdown
 
       - name: Commit changes
         uses: EndBug/add-and-commit@v4
