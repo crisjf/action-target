@@ -20,7 +20,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Update CS_Brix
-        run: bash .github/scripts/update.sh CityScope CS_Brix docs/markdown/docusaurus.md backend
+        run: bash .github/scripts/update.sh CityScope CS_Brix docs/markdown/docusaurus.md backend/
 
       # SYNTAX TO ADD REPOS
       # - name: Update REPO_NAME
