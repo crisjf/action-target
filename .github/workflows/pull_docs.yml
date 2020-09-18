@@ -29,6 +29,6 @@ jobs:
           author_email: crisjf@mit.edu
           message: "Commit from actions"
           add: "."
-          ref: 'my_doc_branch'
+          ref: 'doc_branch'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
