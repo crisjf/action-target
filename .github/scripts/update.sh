@@ -14,11 +14,14 @@ echo "Copying docs into: ${3:-docsite/docs/general}/${2}.md"
 echo "Downloading file at https://raw.githubusercontent.com/${1}/${2}/${4:-master/README.md}"
 mkdir -p ${3:-docsite/docs/general}/
 curl -o ${3:-docsite/docs/general}/${2}_raw.md https://raw.githubusercontent.com/${1}/${2}/master/${4:-master/README.md}
+head ${3:-docsite/docs/general}/${2}_raw.md
 touch ${3:-docsite/docs/general}/${2}_id.md
 printf "%s\n" "---" > ${3:-docsite/docs/general}/${2}_id.md
 printf "%s\n" "id: ${2}" > ${3:-docsite/docs/general}/${2}_id.md
 printf "%s\n\n" "---" > ${3:-docsite/docs/general}/${2}_id.md
+head ${3:-docsite/docs/general}/${2}_id.md
 cat ${3:-docsite/docs/general}/${2}_id.md ${3:-docsite/docs/general}/${2}_raw.md > ${3:-docsite/docs}/${2}.md
+head ${3:-docsite/docs}/${2}.md
 ls -la ${3:-docsite/docs/general}/
 rm ${3:-docsite/docs/general}/${2}_id.md
 rm ${3:-docsite/docs/general}/${2}_raw.md
