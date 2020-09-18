@@ -16,10 +16,9 @@ mkdir -p ${3:-docsite/docs/general}/
 curl -o ${3:-docsite/docs/general}/${2}_raw.md https://raw.githubusercontent.com/${1}/${2}/${4:-master/README.md}
 head ${3:-docsite/docs/general}/${2}_raw.md
 touch ${3:-docsite/docs/general}/${2}_id.md
-echo "---" > ${3:-docsite/docs/general}/${2}_id.md
-echo "id: ${2}"
-echo "id: ${2}" > ${3:-docsite/docs/general}/${2}_id.md
-echo "---" > ${3:-docsite/docs/general}/${2}_id.md
+echo "---" >> ${3:-docsite/docs/general}/${2}_id.md
+echo "id: ${2}" >> ${3:-docsite/docs/general}/${2}_id.md
+echo "---" >> ${3:-docsite/docs/general}/${2}_id.md
 head ${3:-docsite/docs/general}/${2}_id.md
 cat ${3:-docsite/docs/general}/${2}_id.md ${3:-docsite/docs/general}/${2}_raw.md > ${3:-docsite/docs}/${2}.md
 head ${3:-docsite/docs}/${2}.md
