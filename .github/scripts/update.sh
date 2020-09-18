@@ -11,9 +11,9 @@
 
 echo "Copying docs from: ${2}/${4:-README.md}"
 echo "Copying docs into: ${3:-docsite/docs/general}/${2}.md"
-echo "Downloading file at https://raw.githubusercontent.com/${1}/${2}/blob/master/${4:-README.md}"
+echo "Downloading file at https://raw.githubusercontent.com/${1}/${2}/master/${4:-README.md}"
 mkdir -p ${3:-docsite/docs/general}/
-curl -o ${3:-docsite/docs/general}/${2}_raw.md https://raw.githubusercontent.com/${1}/${2}/blob/master/${4:-README.md}
+curl -o ${3:-docsite/docs/general}/${2}_raw.md https://raw.githubusercontent.com/${1}/${2}/master/${4:-README.md}
 touch ${3:-docsite/docs/general}/${2}_id.md
 printf "---\nid: ${2}\n---\n\n" > ${3:-docsite/docs/general}/${2}_id.md
 cat ${3:-docsite/docs/general}/${2}_id.md ${3:-docsite/docs/general}/${2}_raw.md > ${3:-docsite/docs}/${2}/${2}.md
