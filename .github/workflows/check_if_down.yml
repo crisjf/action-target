@@ -14,7 +14,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Check CityIO Status
-        run: curl --fail http://cityio.media.mit.edu || exit 1
+        run: curl --fail http://cityio.media.mit.edu || curl --fail http://cityio.media.mit.edu || exit 1
       - uses: JasonEtco/create-an-issue@v2
         if: ${{ failure() }}
         env:
