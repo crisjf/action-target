@@ -16,6 +16,6 @@ jobs:
       - name: Check CityIO Status
         run: curl --fail http://cityio.media.mit.edu || curl --fail http://cityio.media.mit.edu || exit 1
       - uses: JasonEtco/create-an-issue@v2
-        if: ${{ failure() }}
+        if: ${{ failure() }} && !contains(github.event.issue.labels.*.name, 'CityIO is down')
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
