@@ -1,11 +1,9 @@
 # Description: Workflow that updates markdown files by fetching them from other repositories. It runs every day at midnight automatically, or it can be triggered manually or by setting up a dispatch action in the lower level repo.
 # Author: Cristian Jara-Figueroa, Phd Student MIT Media Lab
-# Last updated: September 18, 2020
-name: Update documentation from downstream repos
+# Last updated: November 3, 2020
+name: Comment on down
 
 on:
-  schedule:
-    - cron:  '0 0 * * *'
   workflow_dispatch:
 
 
@@ -13,14 +11,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Check CityIO Status
+        run: curl --fail http://cityio.media.mit.edu
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v1
+        if: ${{ failure() }}
         with:
           issue-number: 1
           body: |
-            This is a multi-line test comment
-            - With GitHub **Markdown** :sparkles:
-            - Created by [create-or-update-comment][1]
-
-            [1]: https://github.com/peter-evans/create-or-update-comment
-          reactions: '+1'
+            CityIO is down...
