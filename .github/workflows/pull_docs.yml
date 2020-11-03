@@ -13,10 +13,7 @@ jobs:
     steps:
       - name: Check CityIO Status
         run: curl --fail http://cityio.media.mit.edu || exit 1
-      - name: Create comment
-        uses: peter-evans/create-or-update-comment@v1
+      - uses: JasonEtco/create-an-issue@v2
         if: ${{ failure() }}
-        with:
-          issue-number: 1
-          body: |
-            CityIO is down...
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
