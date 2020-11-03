@@ -7,30 +7,20 @@ on:
   schedule:
     - cron:  '0 0 * * *'
   workflow_dispatch:
-  repository_dispatch:
-    types: [docs_update]
 
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Update CS_Brix
-        run: bash .github/scripts/update.sh CityScope CS_Brix docsite/docs/backend master/docs/markdown/docusaurus.md 
-      - name: Update CS_Proxymix
-        run: bash .github/scripts/update.sh wiki/CityScope CS_Proxymix docsite/docs/backend Home.md
-      # SYNTAX TO ADD REPOS
-      # - name: Update REPO_NAME
-        # run: bash .github/scripts/update.sh REPO_NAME_OWNER REPO_NAME DESTINATION_PATH(Defaults to docsite/docs/general) PATH_TO_FILE(Defaults to README.md)
-      - name: Commit changes
-        uses: EndBug/add-and-commit@v4
+      - name: Create comment
+        uses: peter-evans/create-or-update-comment@v1
         with:
-          author_name: crisjf
-          author_email: crisjf@mit.edu
-          message: "Commit from actions"
-          add: "."
-          ref: 'new_docsite'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: 1
+          body: |
+            This is a multi-line test comment
+            - With GitHub **Markdown** :sparkles:
+            - Created by [create-or-update-comment][1]
+
+            [1]: https://github.com/peter-evans/create-or-update-comment
+          reactions: '+1'
